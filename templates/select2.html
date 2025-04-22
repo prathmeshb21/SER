@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Audio File</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8f4e3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+          /* background-image: url('templates/frontend.avif');*/
+           background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url("{{url_for('static', filename='image/image1.png')}}");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /*backdrop-filter: blur(1px);*/
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 450px;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #5a4b3f;
+            margin-bottom: 25px;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-container input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fdfdfd;
+            background-color: #a48f7a;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .custom-file-upload:hover {
+            background-color: #8e7761;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+            background-color: #5a4b3f;
+        }
+
+        .submit-btn:hover {
+            background-color: #3d342c;
+        }
+
+        #file-upload-label {
+            margin-bottom: 15px;
+            background-color: #8c7761;
+        }
+
+        #file-upload-label:hover {
+            background-color: #7a6753;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your Audio File</h1>
+        <div class="form-container">
+            <form action="/success" method="post" enctype="multipart/form-data">
+                <label for="audio_file" id="file-upload-label" class="custom-file-upload">Choose File</label>
+                <input type="file" id="audio_file" name="audio_file" accept="audio/*,.mp4">
+                <button class="custom-file-upload submit-btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("audio_file").onchange = function () {
+            var fileName = this.value.split('\\').pop();
+            document.getElementById("file-upload-label").innerText = "Selected: " + fileName;
+        };
+    </script>
+</body>
+</html>

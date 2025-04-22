@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>Emotion-Based Music Recommender</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f1e1;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url("{{url_for('static', filename='image/image.png')}}");
+
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #main {
+            /*background-color: #fffef8;*/
+            background-color: transparent;
+
+            border-radius: 15px;
+            padding: 40px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 2rem;
+            color: #4a3f35;
+            margin-bottom: 20px;
+        }
+
+        .result-label {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #a1866f;
+            padding: 15px;
+            border: 3px solid #a1866f;
+            background-color: #f9f7f1;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .recommendations {
+            margin-top: 20px;
+        }
+
+        .recommendations h4 {
+            color: #4a3f35;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .recommendations ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .recommendations li {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: #5f4b3b;
+        }
+
+        .recommendations a {
+            color: #7e6651;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .recommendations a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <h3>Predicted Emotion</h3>
+        <div>
+            <span class="result-label">{{ LABEL }}</span>
+        </div>
+
+        {% if songs %}
+        <div class="recommendations">
+            <h4>Song Recommendations for "{{ LABEL|capitalize }}" Mood</h4>
+            <ul>
+                {% for song in songs %}
+                <li>
+                    <a href="{{ song.url }}" target="_blank">{{ song.title }} - {{ song.artist }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

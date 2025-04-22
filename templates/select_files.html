@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload Example</title>
+    <style>
+
+        body 
+        {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url("{{url_for('static', filename='image/ai_image.jfif')}}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0); /* Semi-transparent background for better readability */
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .form-container {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .form-container input[type="file"] {
+            display: none; /* Hide the default file input */
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-file-upload:hover {
+            background-color: #2980b9;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <h1>Please Upload Audio File</h1>
+    <div class="form-container">
+        <form action="/success" method="post" enctype="multipart/form-data">
+            <label for="audio_file" id="file-upload-label" class="custom-file-upload">Choose File</label>
+            <input type="file" id="audio_file" name="audio_file" accept="audio/*,.mp4" class="custom-file-upload">
+            <br><br>
+            <button class="custom-file-upload" type="submit">Submit File</button>
+
+            <script>
+                document.getElementById("audio_file").onchange = function() {
+                var fileName = this.value.split('\\').pop(); // Get the file name
+                document.getElementById("file-upload-label").innerText = "Selected: " + fileName;
+                };
+            </script>
+        </form>
+    </div>
+</div>
+</body>
+</html>

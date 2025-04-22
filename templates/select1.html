@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audio Upload & Record</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            background-color: #f9f5f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #fffdf8;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #444;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .file-upload-label {
+            padding: 14px 22px;
+            background-color: #e8dfd3;
+            color: #3a2e2a;
+            border: 2px dashed #c5b9ad;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-label:hover {
+            background-color: #f0e8de;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .btn {
+            margin-top: 15px;
+            padding: 12px 24px;
+            background-color: #bfa78a;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #a89074;
+        }
+
+        .record-section {
+            margin-top: 30px;
+        }
+
+        .record-btn {
+            background-color: #c5b9ad;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            font-weight: 500;
+        }
+
+        .record-btn:hover {
+            background-color: #aa9c90;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Upload or Record Audio</h1>
+
+    <form action="/success" method="post" enctype="multipart/form-data">
+        <label for="audio_file" class="file-upload-label" id="file-upload-label">🎵 Choose a File</label>
+        <input type="file" id="audio_file" name="file" accept="audio/*,.mp4">
+        <br>
+        <button type="submit" class="btn">📤 Submit</button>
+    </form>
+
+    <div class="record-section">
+        <h2>Or Record Audio</h2>
+        <button class="record-btn" id="recordBtn">🔴 Record</button>
+        <button class="record-btn" id="stopBtn" disabled>⏹ Stop</button>
+        <audio id="audioPreview" controls></audio>
+    </div>
+</div>
+
+<script>
+    document.getElementById("audio_file").onchange = function () {
+        var fileName = this.value.split('\\').pop();
+        document.getElementById("file-upload-label").innerText = "🎵 Selected: " + fileName;
+    };
+
+    let mediaRecorder;
+    let audioChunks = [];
+
+    const recordBtn = document.getElementById('recordBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const audioPreview = document.getElementById('audioPreview');
+
+    recordBtn.onclick = async () => {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+
+        mediaRecorder.onstop = async () => {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+            audioPreview.src = URL.createObjectURL(audioBlob);
+
+            const formData = new FormData();
+            formData.append('file', audioBlob, 'recorded_audio.webm');
+
+            const response = await fetch('/success', {
+                method: 'POST',
+                body: formData
+            });
+
+            const html = await response.text();
+            document.open();
+            document.write(html);
+            document.close();
+        };
+
+        mediaRecorder.start();
+        recordBtn.disabled = true;
+        stopBtn.disabled = false;
+    };
+
+    stopBtn.onclick = () => {
+        mediaRecorder.stop();
+        recordBtn.disabled = false;
+        stopBtn.disabled = true;
+    };
+</script>
+</body>
+</html>

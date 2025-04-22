@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>Result</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url("{{url_for('static', filename='image/ai_image.jfif')}}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #main {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: #fff;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        .result-label {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #007bff;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .song-recommendations {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .song-recommendations h5 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .song-recommendations ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .song-recommendations li {
+            margin-bottom: 10px;
+            color: #f1f1f1;
+        }
+
+        .song-recommendations a {
+            color: #00ffcc;
+            text-decoration: none;
+        }
+
+        .song-recommendations a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <h3>Predicted Emotion</h3>
+        <div>
+            <span class="result-label">{{ LABEL }}</span>
+        </div>
+
+        {% if songs %}
+        <div class="song-recommendations">
+            <h5>Recommended Songs for "{{ LABEL|capitalize }}" Mood:</h5>
+            <ul>
+                {% for song in songs %}
+                <li>
+                    <strong>{{ song.title }}</strong> by {{ song.artist }} –
+                    <a href="{{ song.url }}" target="_blank">Listen</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
