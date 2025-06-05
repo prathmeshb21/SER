@@ -1,39 +1,41 @@
 SONG_RECOMMENDATIONS = {
-    "happy": [
-        {"title": "Happy", "artist": "Pharrell Williams", "url": "https://open.spotify.com/track/60nZcImufyMA1MKQY3dcCH"},
-        {"title": "Can't Stop the Feeling!", "artist": "Justin Timberlake", "url": "https://open.spotify.com/track/6JV2JOEocMgcZxYSZelKcc"},
-        {"title": "Uptown Funk", "artist": "Mark Ronson ft. Bruno Mars", "url": "https://open.spotify.com/track/32OlwWuMpZ6b0aN2RZOeMS"},
-        {"title": "Best Day of My Life", "artist": "American Authors", "url": "https://open.spotify.com/track/4Yk2c1vNwXc0gZ2y1nI3hF"},
-        {"title": "Walking on Sunshine", "artist": "Katrina & The Waves", "url": "https://open.spotify.com/track/3KkXRkHbMCARz0aVfEt68P"},
-        {"title": "Good Vibrations", "artist": "The Beach Boys", "url": "https://open.spotify.com/track/3KkXRkHbMCARz0aVfEt68P"},
-        {"title": "I Gotta Feeling", "artist": "The Black Eyed Peas", "url": "https://open.spotify.com/track/1bDbXMyjaUIooNwFE9wn0N"},
-        {"title": "Don't Stop Me Now", "artist": "Queen", "url": "https://open.spotify.com/track/5T8EDUDqKcs6OSOwEsfqG7"},
-        {"title": "Shake It Off", "artist": "Taylor Swift", "url": "https://open.spotify.com/track/5WfhX6uV4Y0xwD6v4zU6pW"},
-        {"title": "Good as Hell", "artist": "Lizzo", "url": "https://open.spotify.com/track/6Uj1ctrBOjOas8xZXGqKk4"}
-    ],
-    "sad": [
-        {"title": "Someone Like You", "artist": "Adele", "url": "https://open.spotify.com/track/4kflIGfjdZJW4ot2ioixTB"},
-        {"title": "All of Me", "artist": "John Legend", "url": "https://open.spotify.com/track/3U4isOIWM3VvDubwSI3y7a"},
-        {"title": "Let Her Go", "artist": "Passenger", "url": "https://open.spotify.com/track/5Z01UMMf7V1o0MzF86s6WJ"},
-        {"title": "Stay With Me", "artist": "Sam Smith", "url": "https://open.spotify.com/track/3jjujdWJ72nww5eGnfs2E7"},
-        {"title": "Fix You", "artist": "Coldplay", "url": "https://open.spotify.com/track/6KuQTIu1KoTTkLXKrwlLPV"},
-        {"title": "Skinny Love", "artist": "Bon Iver", "url": "https://open.spotify.com/track/0k1WUmIRnG3xU6fvvDVfRG"},
-        {"title": "Say Something", "artist": "A Great Big World & Christina Aguilera", "url": "https://open.spotify.com/track/4TgkNXt4zT9x0wzF8p5z9a"},
-        {"title": "The Night We Met", "artist": "Lord Huron", "url": "https://open.spotify.com/track/3qtlcTQpS1K1U6j4z9e2QF"},
-        {"title": "Jealous", "artist": "Labrinth", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
-        {"title": "Tears Dry on Their Own", "artist": "Amy Winehouse", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"}
-    ],
-    "calm": [
-        {"title": "Weightless", "artist": "Marconi Union", "url": "https://open.spotify.com/track/7H1Qxv2q0zJv1o6K9e2QF"},
-        {"title": "Clair de Lune", "artist": "Claude Debussy", "url": "https://open.spotify.com/track/2QjOHCTQ1Jl3zawyYOpxh6"},
-        {"title": "River Flows In You", "artist": "Yiruma", "url": "https://open.spotify.com/track/6u7jPi22kF8CTQ3rb9DHE7"},
-        {"title": "Spiegel im Spiegel", "artist": "Arvo Pärt", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
-        {"title": "Nocturne in E-flat Major", "artist": "Frédéric Chopin", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
-        {"title": "Gymnopédie No.1", "artist": "Erik Satie", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
-        {"title": "Canon in D", "artist": "Johann Pachelbel", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
-        {"title": "Meditation", "artist": "Jules Massenet", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
-        {"title": "The Swan", "artist": "Camille Saint-Saëns", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
-    ],
+  "happy": [
+    {"title": "Happy", "artist": "Pharrell Williams", "url": "https://open.spotify.com/track/60nZcImufyMA1MKQY3dcCH"},
+    {"title": "Can't Stop the Feeling!", "artist": "Justin Timberlake", "url": "https://open.spotify.com/track/6JV2JOEocMgcZxYSZelKcc"},
+    {"title": "Uptown Funk", "artist": "Mark Ronson ft. Bruno Mars", "url": "https://open.spotify.com/track/32OlwWuMpZ6b0aN2RZOeMS"},
+    {"title": "Best Day of My Life", "artist": "American Authors", "url": "https://open.spotify.com/track/4Yk2c1vNwXc0gZ2y1nI3hF"},
+    {"title": "Walking on Sunshine", "artist": "Katrina & The Waves", "url": "https://open.spotify.com/track/3KkXRkHbMCARz0aVfEt68P"},
+    {"title": "Good Vibrations", "artist": "The Beach Boys", "url": "https://open.spotify.com/track/3KkXRkHbMCARz0aVfEt68P"},
+    {"title": "I Gotta Feeling", "artist": "The Black Eyed Peas", "url": "https://open.spotify.com/track/1bDbXMyjaUIooNwFE9wn0N"},
+    {"title": "Don't Stop Me Now", "artist": "Queen", "url": "https://open.spotify.com/track/5T8EDUDqKcs6OSOwEsfqG7"},
+    {"title": "Shake It Off", "artist": "Taylor Swift", "url": "https://open.spotify.com/track/5WfhX6uV4Y0xwD6v4zU6pW"},
+    {"title": "Good as Hell", "artist": "Lizzo", "url": "https://open.spotify.com/track/6Uj1ctrBOjOas8xZXGqKk4"}
+  ],
+  "sad": [
+    {"title": "Someone Like You", "artist": "Adele", "url": "https://open.spotify.com/track/4kflIGfjdZJW4ot2ioixTB"},
+    {"title": "All of Me", "artist": "John Legend", "url": "https://open.spotify.com/track/3U4isOIWM3VvDubwSI3y7a"},
+    {"title": "Let Her Go", "artist": "Passenger", "url": "https://open.spotify.com/track/5Z01UMMf7V1o0MzF86s6WJ"},
+    {"title": "Stay With Me", "artist": "Sam Smith", "url": "https://open.spotify.com/track/3jjujdWJ72nww5eGnfs2E7"},
+    {"title": "Fix You", "artist": "Coldplay", "url": "https://open.spotify.com/track/6KuQTIu1KoTTkLXKrwlLPV"},
+    {"title": "Skinny Love", "artist": "Bon Iver", "url": "https://open.spotify.com/track/0k1WUmIRnG3xU6fvvDVfRG"},
+    {"title": "Say Something", "artist": "A Great Big World & Christina Aguilera", "url": "https://open.spotify.com/track/4TgkNXt4zT9x0wzF8p5z9a"},
+    {"title": "The Night We Met", "artist": "Lord Huron", "url": "https://open.spotify.com/track/3qtlcTQpS1K1U6j4z9e2QF"},
+    {"title": "Jealous", "artist": "Labrinth", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
+    {"title": "Tears Dry on Their Own", "artist": "Amy Winehouse", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"}
+  ],
+  "calm": [
+    {"title": "Weightless", "artist": "Marconi Union", "url": "https://open.spotify.com/track/7H1Qxv2q0zJv1o6K9e2QF"},
+    {"title": "Clair de Lune", "artist": "Claude Debussy", "url": "https://open.spotify.com/track/2QjOHCTQ1Jl3zawyYOpxh6"},
+    {"title": "River Flows In You", "artist": "Yiruma", "url": "https://open.spotify.com/track/6u7jPi22kF8CTQ3rb9DHE7"},
+    {"title": "Spiegel im Spiegel", "artist": "Arvo Pärt", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
+    {"title": "Nocturne in E-flat Major", "artist": "Frédéric Chopin", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
+    {"title": "Gymnopédie No.1", "artist": "Erik Satie", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
+    {"title": "Canon in D", "artist": "Johann Pachelbel", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
+    {"title": "Meditation", "artist": "Jules Massenet", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"},
+    {"title": "The Swan", "artist": "Camille Saint-Saëns", "url": "https://open.spotify.com/track/3rN0Hk0rE1bZ2pXj4z9e2QF"}
+  ],
+
+
     "angry": [
     {
         "title": "Break Stuff",
@@ -298,7 +300,7 @@ SONG_RECOMMENDATIONS = {
     "url": "https://open.spotify.com/track/3zkWCteF82vJwv0hRLba76"
   }
 ]
-}
+  }
 
 
 

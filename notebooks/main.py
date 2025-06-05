@@ -138,7 +138,7 @@ class HybridModel(nn.Module):
         return output_logits, output_softmax
 
 
-EMOTIONS = {1:'neutral', 2:'calm', 3:'happy', 4:'sad', 5:'angry', 6:'fear', 7:'disgust', 0:'surprise'}
+EMOTIONS = {1:'neutral', 2:'sad', 3:'happy', 4:'sad', 5:'angry', 6:'fear', 7:'disgust', 0:'surprise'}
 model = HybridModel(len(EMOTIONS))
 model.load_state_dict(torch.load("models/cnn_lstm_model_imp1.pt", map_location=torch.device('cpu')))
 SAMPLE_RATE = 48000
