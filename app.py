@@ -53,7 +53,7 @@ def success():
         all_songs = sum(SONG_RECOMMENDATIONS.values(), [])
         recommended_songs = random.sample(all_songs, 3) if len(all_songs) >= 3 else all_songs
 
-        return render_template("result2.html", LABEL=pred_output, songs=recommended_songs)
+        return render_template("result3.html", LABEL=pred_output, songs=recommended_songs)
 
 
  #   return render_template("result.html",LABEL=pred_output)
